@@ -1,7 +1,16 @@
+using WebApplication1.Services.Hash;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+/*Місце для реєстрації служб - між створенням Builder та його використанням (app) 
+  Реєстрація - співставлення інтерфейсу з класом за формулою
+  "Буде запит на IHashService - видати об'єкт класу Md5HashService"
+ 
+ */
+builder.Services.AddSingleton<IHashService, Md5HashService>();
 
 var app = builder.Build();
 
