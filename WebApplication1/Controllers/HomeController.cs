@@ -40,6 +40,11 @@ namespace WebApplication1.Controllers
         public IActionResult Ioc()
         {
             ViewData["hash"] = _hashService.Digest("123");
+            ViewData["hashCode"] = _hashService.GetHashCode();
+            return View();
+        }
+        public IActionResult SignUp()
+        {
             return View();
         }
 
